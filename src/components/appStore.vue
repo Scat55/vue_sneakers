@@ -3,10 +3,10 @@
     <h3 class="store__title">Все кросовки</h3>
     <div class="store__item">
       <div class="store__item-sneakers" v-for="ticker in tickers" :key="ticker.id">
-        <img src="" alt="Sneaker" class="store__item-img">
+        <img :src="require('../assets/images/sneakers/' + ticker.image)" alt="Sneaker" class="store__item-img">
         <p class="store__item-name">{{ ticker.name }}</p>
         <span class="store__item-sale">Цена</span>
-        <p class="store__item-price">{{ ticker.price }}</p>
+        <p class="store__item-price">{{ ticker.price }} руб</p>
       </div>
     </div>
   </div>
@@ -18,23 +18,39 @@ export default {
     return {
       tickers: [
         {
-          name: '1sfsdf',
-          price: '12 000',
+          image: '1.jpg',
+          name: 'Мужские Кроссовки Nike Blazer Mid Suede',
+          price: 12999,
           id: 1
         },
         {
-          name: '2sfsdf',
-          price: '11 000',
+          image: '2.jpg',
+          name: 'Мужские Кроссовки Nike Air Max 270',
+          price: 12999,
           id: 2
         },
         {
-          name: '3sfsdf',
-          price: '132 000',
+          image: '3.jpg',
+          name: 'Мужские Кроссовки Nike Blazer Mid Suede',
+          price: 8499,
           id: 3
         },
         {
-          name: '4sfsdf',
-          price: '142 000',
+          image: '4.jpg',
+          name: 'Кроссовки Puma X Aka Boku Future Rider',
+          price: 8999,
+          id: 4
+        },
+        {
+          image: '4.jpg',
+          name: 'Кроссовки Puma X Aka Boku Future Rider',
+          price: 8999,
+          id: 4
+        },
+        {
+          image: '4.jpg',
+          name: 'Кроссовки Puma X Aka Boku Future Rider',
+          price: 8999,
           id: 4
         },
       ]
@@ -60,7 +76,7 @@ export default {
   &__item {
     @include alignCenter;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 2.5rem;
 
     &-sneakers {
       // TODO: Переделать в миксин
@@ -68,7 +84,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       // align-items: center;
-      padding-left: 2rem;
+      padding-left: 1.25rem;
       gap: 0.25rem;
       width: 210px;
       height: 260px;
@@ -84,10 +100,12 @@ export default {
     }
   }
 
-
   // .store__item-img
 
-  &__item-img {}
+  &__item-img {
+    width: 133px;
+    height: 112px;
+  }
 
   // .store__item-name
 
