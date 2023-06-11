@@ -1,4 +1,11 @@
-@include dflexCenter {
+@mixin dflex {
+  display: flex;
+}
+@mixin alignCenter {
+  display: flex;
+  align-items: center;
+}
+@mixin dflexCenter {
   display: flex;
   justify-content: center;
   align-items: center;

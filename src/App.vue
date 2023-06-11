@@ -1,16 +1,19 @@
 <template>
   <div>
     <appHeader />
+    <appStore />
   </div>
 </template>
 
 <script>
-import appHeader from './components/appHeader'
+import appHeader from './components/appHeader';
+import appStore from './components/appStore';
 
 export default {
   name: 'App',
   components: {
-    appHeader
+    appHeader,
+    appStore
   },
   data() {
     return {
@@ -24,12 +27,11 @@ export default {
 @import './assets/styles/styles.scss';
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  color: var(mainColor);
-  font-size: 2rem;
-
+  background-color: #fff;
+  margin: 5.313rem;
+  padding: 2.688rem 4.063rem;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 1.25rem;
+  color: var(--mainColor);
 }
 </style>
