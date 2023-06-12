@@ -22,7 +22,7 @@ let store = new Vuex.Store({
       return axios
         .get('http://localhost:3000/products')
         .then((products) => {
-          commit('SET_PRODUCTS_TO_STATE', products);
+          commit('SET_PRODUCTS_TO_STATE', products.data);
           return products;
         })
         .catch((error) => {
