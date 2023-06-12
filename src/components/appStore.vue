@@ -13,7 +13,9 @@
 </template>
 
 <script>
+import appStoreItem from '../components/appStoreItem.vue';
 export default {
+  name: 'appStore',
   data() {
     return {
       tickers: [
@@ -34,18 +36,6 @@ export default {
           name: 'Мужские Кроссовки Nike Blazer Mid Suede',
           price: 8499,
           id: 3
-        },
-        {
-          image: '4.jpg',
-          name: 'Кроссовки Puma X Aka Boku Future Rider',
-          price: 8999,
-          id: 4
-        },
-        {
-          image: '4.jpg',
-          name: 'Кроссовки Puma X Aka Boku Future Rider',
-          price: 8999,
-          id: 4
         },
         {
           image: '4.jpg',
