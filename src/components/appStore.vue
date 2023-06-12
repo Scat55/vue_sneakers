@@ -1,7 +1,9 @@
 <template>
-  <h3 class="store__title">Все кросовки</h3>
-  <div class="store__item">
-    <appStoreItem v-for="product in PRODUCTS" :key="product.id" :productItems="product" @sendArticle="showChaild" />
+  <div class="container">
+    <h3 class="store__title">Все кросовки</h3>
+    <div class="store__item">
+      <appStoreItem v-for="product in PRODUCTS" :key="product.id" :productItems="product" @addToCart="addToCart" />
+    </div>
   </div>
 </template>
 
@@ -22,14 +24,16 @@ export default {
   computed: {
     ...mapGetters([
       'PRODUCTS'
+
     ]),
   },
   methods: {
     ...mapActions([
-      'GET_PRODUCTS_FROM_API'
+      'GET_PRODUCTS_FROM_API',
+      'ADD_TO_CART'
     ]),
-    showChaild(child) {
-      console.log(child)
+    addToCart(data) {
+      this.ADD_TO_CART(data)
     }
   },
   mounted() {
@@ -52,6 +56,6 @@ export default {
 .store__item {
   @include alignCenter;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 </style>

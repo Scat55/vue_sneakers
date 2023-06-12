@@ -16,3 +16,8 @@ body {
   background-color: var(--bodyColor);
   color: var(--mainColor);
 }
+
+.container {
+  max-width: 59.75rem;
+  margin: 0 auto;
+}

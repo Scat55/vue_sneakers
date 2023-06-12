@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     <appHeader />
     <appStore />
+    <appCart v-if="CART.length" :cartItem="CART" />
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 import appHeader from './components/appHeader';
 import appStore from './components/appStore';
 import appCart from './components/appCart'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -22,6 +24,11 @@ export default {
 
     }
   },
+  computed: {
+    ...mapGetters([
+      'CART'
+    ])
+  }
 }
 </script>
 
@@ -29,8 +36,9 @@ export default {
 @import './assets/styles/styles.scss';
 
 #app {
+  max-width: 1078px;
+  margin: 5.313rem auto;
   background-color: #fff;
-  margin: 5.313rem;
   padding: 2.688rem 4.063rem;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 1.25rem;

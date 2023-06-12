@@ -10,7 +10,7 @@
             <span class="store__item-sale">Цена:</span>
             <p class="store__item-price">{{ productItems.price }} руб.</p>
           </div>
-          <button class="store__item-btn" @click="sendIdToParent">
+          <button class="store__item-btn" @click="addToCart">
             <img src="../assets/images/addToCart.svg" alt="addToCart"></button>
         </div>
       </div>
@@ -34,9 +34,9 @@ export default {
     };
   },
   methods: {
-    sendIdToParent() {
-      this.$emit('sendArticle', this.productItems.id)
-    },
+    addToCart() {
+      this.$emit('addToCart', this.productItems);
+    }
   },
 };
 </script>
@@ -48,6 +48,8 @@ export default {
 
   // .store__item
   &__item {
+    max-width: 968px;
+
     &-sneakers {
       @include flexColumn;
       padding-left: 1.25rem;
@@ -120,6 +122,9 @@ export default {
     background-color: transparent;
     outline: none;
     cursor: pointer;
+    transition: all .5s;
+
+
   }
 
 }

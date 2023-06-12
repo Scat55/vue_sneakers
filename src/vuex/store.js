@@ -6,12 +6,16 @@ let store = new Vuex.Store({
   // Сосотояния. Хранятся все переменные, объекты, массивы, и прочее
   state: {
     products: [], // массив с товарами
+    cart: [], // Массив корзины
   },
 
   // Меняем данные из state. Они синхронны. Идут по очереди
   mutations: {
     SET_PRODUCTS_TO_STATE(state, products) {
       state.products = products;
+    },
+    SET_CART(state, product) {
+      state.cart.push(product);
     },
   },
 
@@ -30,12 +34,18 @@ let store = new Vuex.Store({
           return error;
         });
     },
+    ADD_TO_CART({ commit }, product) {
+      commit('SET_CART', product);
+    },
   },
 
   // Короткий путь до получении информации о данных в state
   getters: {
     PRODUCTS(state) {
       return state.products;
+    },
+    CART(state) {
+      return state.cart;
     },
   },
 });
