@@ -1,12 +1,11 @@
 <template>
   <div class="store">
-
     <div class="store__item">
-      <div class="store__item-sneakers" v-for="ticker in tickers" :key="ticker.id">
-        <img :src="require('../assets/images/sneakers/' + ticker.image)" alt="Sneaker" class="store__item-img">
-        <p class="store__item-name">{{ ticker.name }}</p>
+      <div class="store__item-sneakers">
+        <img :src="require('../assets/images/sneakers/' + productItems.image)" alt="Sneaker" class="store__item-img" />
+        <p class="store__item-name">{{ productItems.name }}</p>
         <span class="store__item-sale">Цена:</span>
-        <p class="store__item-price">{{ ticker.price }} руб.</p>
+        <p class="store__item-price">{{ productItems.price }} руб.</p>
       </div>
     </div>
   </div>
@@ -15,38 +14,18 @@
 <script>
 export default {
   name: 'appStoreItem',
-  data() {
-    return {
-      tickers: [
-        {
-          image: '1.jpg',
-          name: 'Мужские Кроссовки Nike Blazer Mid Suede',
-          price: 12999,
-          id: 1
-        },
-        {
-          image: '2.jpg',
-          name: 'Мужские Кроссовки Nike Air Max 270',
-          price: 12999,
-          id: 2
-        },
-        {
-          image: '3.jpg',
-          name: 'Мужские Кроссовки Nike Blazer Mid Suede',
-          price: 8499,
-          id: 3
-        },
-        {
-          image: '4.jpg',
-          name: 'Кроссовки Puma X Aka Boku Future Rider',
-          price: 8999,
-          id: 4
-        },
-      ]
-    }
+  props: {
+    productItems: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
   },
-
-}
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -56,10 +35,6 @@ export default {
 
   // .store__item
   &__item {
-    @include alignCenter;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-
     &-sneakers {
       @include flexColumn;
       padding-left: 1.25rem;
@@ -68,7 +43,7 @@ export default {
       height: 16.25rem;
       border: 0.063rem solid #e3e3e3;
       border-radius: 2.5rem;
-      transition: all .3s;
+      transition: all 0.3s;
 
       &:hover {
         transform: scale(1.05);
@@ -101,7 +76,7 @@ export default {
     line-height: 0.813rem;
     text-transform: uppercase;
     margin-top: 0.875rem;
-    color: #BDBDBD;
+    color: #bdbdbd;
   }
 
   // .store__item-price

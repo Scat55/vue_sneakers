@@ -8,12 +8,14 @@
 <script>
 import appHeader from './components/appHeader';
 import appStore from './components/appStore';
+import appCart from './components/appCart'
 
 export default {
   name: 'App',
   components: {
     appHeader,
-    appStore
+    appStore,
+    appCart
   },
   data() {
     return {
