@@ -19,9 +19,16 @@ let store = new Vuex.Store({
   actions: {
     // Создаем метод получения данных из state
     GET_PRODUCTS_FROM_API({ commit }) {
-      return axios.get('http://localhost:3000/products').then((products) => {
-        commit('SET_PRODUCTS_TO_STATE', products);
-      });
+      return axios
+        .get('http://localhost:3000/products')
+        .then((products) => {
+          commit('SET_PRODUCTS_TO_STATE', products);
+          return products;
+        })
+        .catch((error) => {
+          console.log(error);
+          return error;
+        });
     },
   },
 
