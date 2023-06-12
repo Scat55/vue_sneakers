@@ -4,8 +4,15 @@
       <div class="store__item-sneakers">
         <img :src="require('../assets/images/sneakers/' + productItems.image)" alt="Sneaker" class="store__item-img" />
         <p class="store__item-name">{{ productItems.name }}</p>
-        <span class="store__item-sale">Цена:</span>
-        <p class="store__item-price">{{ productItems.price }} руб.</p>
+
+        <div class="store__item-buy">
+          <div class="store__item-buy-text">
+            <span class="store__item-sale">Цена:</span>
+            <p class="store__item-price">{{ productItems.price }} руб.</p>
+          </div>
+          <button class="store__item-btn" @click="sendIdToParent">
+            <img src="../assets/images/addToCart.svg" alt="addToCart"></button>
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +30,13 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+    };
+  },
+  methods: {
+    sendIdToParent() {
+      this.$emit('sendArticle', this.productItems.id)
+    },
   },
 };
 </script>
@@ -48,7 +61,7 @@ export default {
       &:hover {
         transform: scale(1.05);
         box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-        cursor: pointer;
+
       }
     }
   }
@@ -86,5 +99,28 @@ export default {
     font-size: 0.875rem;
     line-height: 1.063rem;
   }
+
+  &__item-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__item-btn {
+    padding-top: 1rem;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+
 }
 </style>

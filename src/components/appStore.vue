@@ -1,7 +1,7 @@
 <template>
   <h3 class="store__title">Все кросовки</h3>
   <div class="store__item">
-    <appStoreItem v-for="product in products" :key="product.id" :productItems="product" />
+    <appStoreItem v-for="product in products" :key="product.id" :productItems="product" @sendArticle="showChaild" />
   </div>
 </template>
 
@@ -44,6 +44,11 @@ export default {
       ],
     };
   },
+  methods: {
+    showChaild(child) {
+      console.log(child)
+    }
+  }
 };
 </script>
 
