@@ -15,7 +15,23 @@ let store = new Vuex.Store({
       state.products = products;
     },
     SET_CART(state, product) {
-      state.cart.push(product);
+      if (state.cart.length) {
+        let isProdectExist = false; // Если есть одинаковый продукт меняем на true
+        state.cart.map((item) => {
+          if (item.id === product.id) {
+            isProdectExist = true;
+            item.quantity += 1;
+          }
+        });
+        if (!isProdectExist) {
+          state.cart.push(product);
+        }
+      } else {
+        state.cart.push(product);
+      }
+    },
+    REMOVE_FROM_CART(state, index) {
+      state.cart.splice(index, 1);
     },
   },
 
@@ -36,6 +52,9 @@ let store = new Vuex.Store({
     },
     ADD_TO_CART({ commit }, product) {
       commit('SET_CART', product);
+    },
+    DELETE_FROM_CART({ commit }, index) {
+      commit('REMOVE_FROM_CART', index);
     },
   },
 

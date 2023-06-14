@@ -9,7 +9,7 @@
 <script>
 import appHeader from './components/appHeader';
 import appStore from './components/appStore';
-import appCart from './components/appCart'
+import appCart from './components/appCart';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -17,19 +17,15 @@ export default {
   components: {
     appHeader,
     appStore,
-    appCart
+    appCart,
   },
   data() {
-    return {
-
-    }
+    return {};
   },
   computed: {
-    ...mapGetters([
-      'CART'
-    ])
-  }
-}
+    ...mapGetters(['CART']),
+  },
+};
 </script>
 
 <style lang="scss">

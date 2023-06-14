@@ -1,54 +1,59 @@
 <template>
-  <div class="cart__shadow">
-
-    <div class="cart">
-      <h3 class="cart__title">Корзина</h3>
-      <appCartItem v-for="item in cartItem" :key="item.id" :cartChild="item" />
+  <div class="cart">
+    <h3 class="cart__title">Корзина</h3>
+    <div class="cart__item">
+      <appCartItem
+        v-for="(item, idx) in cartItem"
+        :key="item.id"
+        :cartChild="item"
+        @removeFromCart="removeFromCart(idx)"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import appCartItem from './appCartItem';
+import { mapActions } from 'vuex';
 export default {
   name: 'appCart',
   components: {
-    appCartItem
+    appCartItem,
   },
   props: {
     cartItem: {
       type: Array,
       default() {
         return [];
-      }
-    }
+      },
+    },
   },
-}
+  methods: {
+    ...mapActions(['DELETE_FROM_CART']),
+    removeFromCart(idx) {
+      this.DELETE_FROM_CART(idx);
+    },
+  },
+};
 </script>
 
-<style style lang = "scss" scoped >
+<style style lang="scss" scoped>
 @import '../assets/styles/styles.scss';
 
-.cart__shadow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 200vh;
-  background-color: rgb(0, 0, 0, 0.1);
-}
-
 .cart {
-  position: absolute;
-  top: 5.313rem;
-  right: 13.82rem;
-  background: #fff;
-  border-radius: 1.25rem;
-  width: 24.063rem;
-  padding: 0 1.875rem;
-
   &__title {
+    margin-top: 2rem;
     margin-bottom: 1.875rem;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 }
-</style >
+</style>

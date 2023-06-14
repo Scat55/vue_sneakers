@@ -2,7 +2,11 @@
   <div class="store">
     <div class="store__item">
       <div class="store__item-sneakers">
-        <img :src="require('../assets/images/sneakers/' + productItems.image)" alt="Sneaker" class="store__item-img" />
+        <img
+          :src="require('../assets/images/sneakers/' + productItems.image)"
+          alt="Sneaker"
+          class="store__item-img"
+        />
         <p class="store__item-name">{{ productItems.name }}</p>
 
         <div class="store__item-buy">
@@ -11,7 +15,8 @@
             <p class="store__item-price">{{ productItems.price }} руб.</p>
           </div>
           <button class="store__item-btn" @click="addToCart">
-            <img src="../assets/images/addToCart.svg" alt="addToCart"></button>
+            <img src="../assets/images/addToCart.svg" alt="addToCart" />
+          </button>
         </div>
       </div>
     </div>
@@ -30,13 +35,12 @@ export default {
     },
   },
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     addToCart() {
       this.$emit('addToCart', this.productItems);
-    }
+    },
   },
 };
 </script>
@@ -45,7 +49,6 @@ export default {
 @import '../assets/styles/styles.scss';
 
 .store {
-
   // .store__item
   &__item {
     max-width: 968px;
@@ -63,7 +66,6 @@ export default {
       &:hover {
         transform: scale(1.05);
         box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-
       }
     }
   }
@@ -108,7 +110,6 @@ export default {
     justify-content: space-around;
     gap: 1rem;
 
-
     &-text {
       display: flex;
       flex-direction: column;
@@ -122,10 +123,7 @@ export default {
     background-color: transparent;
     outline: none;
     cursor: pointer;
-    transition: all .5s;
-
-
+    transition: all 0.5s;
   }
-
 }
 </style>
