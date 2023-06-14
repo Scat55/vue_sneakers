@@ -3,7 +3,7 @@
     <h3 class="cart__title">Корзина</h3>
     <div class="cart__item">
       <appCartItem
-        v-for="(item, idx) in cartItem"
+        v-for="(item, idx) in CART"
         :key="item.id"
         :cartChild="item"
         @removeFromCart="removeFromCart(idx)"
@@ -14,7 +14,7 @@
 
 <script>
 import appCartItem from './appCartItem';
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'appCart',
   components: {
@@ -27,6 +27,9 @@ export default {
         return [];
       },
     },
+  },
+  computed: {
+    ...mapGetters(['CART']),
   },
   methods: {
     ...mapActions(['DELETE_FROM_CART']),

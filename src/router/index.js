@@ -12,6 +12,7 @@ const routes = [
     path: '/cart',
     name: 'cart',
     component: appCart,
+    props: true,
   },
 ];
 
