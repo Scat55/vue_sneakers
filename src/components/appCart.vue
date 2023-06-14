@@ -1,6 +1,7 @@
 <template>
   <div class="cart">
     <h3 class="cart__title">Корзина</h3>
+    <p v-if="!CART.length">Корзина пуста</p>
     <div class="cart__item">
       <appCartItem
         v-for="(item, idx) in CART"

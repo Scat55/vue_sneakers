@@ -1,17 +1,14 @@
 <template>
   <div class="container">
     <appHeader />
-    <!-- <appStore /> -->
-    <!-- <appCart v-if="CART.length" :cartItem="CART" /> -->
   </div>
-  <router-view></router-view>
+  <keep-alive>
+    <router-view></router-view>
+  </keep-alive>
 </template>
 
 <script>
 import appHeader from './components/appHeader';
-// import appStore from './components/appStore';
-// import appCart from './components/appCart';
-import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -22,9 +19,6 @@ export default {
   },
   data() {
     return {};
-  },
-  computed: {
-    ...mapGetters(['CART']),
   },
 };
 </script>

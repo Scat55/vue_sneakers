@@ -1,16 +1,18 @@
 <template>
   <div class="header">
-    <a href="/" class="header__logo">
+    <a href="#" class="header__logo">
       <img src="../assets/images/logo.png" alt="Logo" class="header__logo-img" />
-      <div class="header__logo-text">
-        <p class="header__logo-title">VUE SNEAKERS</p>
-        <p class="header__logo-subtitle">Магазин лучших кроссовок</p>
-      </div>
+      <router-link class="dic_no" :to="{ name: 'catalog' }">
+        <div class="header__logo-text">
+          <p class="header__logo-title">VUE SNEAKERS</p>
+          <p class="header__logo-subtitle">Магазин лучших кроссовок</p>
+        </div></router-link
+      >
     </a>
     <nav class="header__nav">
       <ul class="header__nav-list">
         <li class="header__nav-list-item">
-          <router-link class="header__cart" :to="{ name: 'cart', params: { cartItem: CART } }">
+          <router-link class="dic_no" :to="{ name: 'cart', params: { cartItem: CART } }">
             <a href="#"
               ><img src="../assets/images/cart.svg" alt="Cart" class="header__list-item-img"
             /></a>
@@ -48,7 +50,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/styles/styles.scss';
-
+.dic_no {
+  text-decoration: none;
+}
 .header {
   @include dflex;
   justify-content: space-between;
